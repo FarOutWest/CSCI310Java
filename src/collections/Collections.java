@@ -29,215 +29,92 @@ import static kiss.API.println;
  * @author West
  */
 public class Collections {
-    void testrun() {
-        outExpect("Hello World!");
-        run();
-        outClose();
-    }
-
-    void run() {
-        println("Hello World!");
-    }
-
-    void testBoxing() {
-        Integer x = new Integer(3);
-        Integer y = x;
-        ++x;
-        // x = new Integer(x.intValue() + 1);
-        assert x.intValue() == 4;
-        assert y.intValue() == 3;
-        assert y != new Integer(3);
-        assert y.equals(new Integer(3));
-        assert y.compareTo(new Integer(3)) == 0;
-    }
-
-    class Reverse implements Comparator<Integer> {
-
-        @Override
-        public int compare(Integer a, Integer b) {
-            return -a.compareTo(b);
-        }
-
-    }
-
     void testHashSet() {
-        Set<String> pets = new HashSet<String>();
+        Set<String> names = new HashSet<String>();
 
-        pets.add("fluffy");
-        pets.add("pookie");
-        pets.add("pupper");
-        pets.add("doge");
-        pets.add("pepe");
+        names.add("luke");
+        names.add("han");
+        names.add("chewie");
+        names.add("darth vader");
+        names.add("lando");
 
-        try (Close out = outExpect("pupper", EOL, "doge", EOL, "pookie", EOL, "fluffy", EOL, "pepe", EOL)) {
-            for (String pet : pets) {
-                println(pet);
+        try (Close out = outExpect("luke", EOL, "han", EOL, "darth vader", EOL, "chewie", EOL, "lando", EOL)) {
+            for (String name : names) {
+                println(name);
             }
         }
 
     }
 
     void testTreeSet() {
-        Set<String> pets = new TreeSet<String>();
+        Set<String> nums = new TreeSet<String>();
 
-        pets.add("fluffy");
-        pets.add("pookie");
-        pets.add("pupper");
-        pets.add("doge");
-        pets.add("pepe");
+        nums.add("1");
+        nums.add("2");
+        nums.add("3");
+        nums.add("4");
+        nums.add("5");
 
-        try (Close out = outExpect("doge", EOL, "fluffy", EOL, "pepe", EOL, "pookie", EOL, "pupper", EOL)) {
-            for (String pet : pets) {
-                println(pet);
-            }
-        }
-    }
-
-    void testHashMap() {
-        Map<String, Integer> petAges = new HashMap<String, Integer>();
-
-        petAges.put("fluffy", 7);
-        petAges.put("pookie", 2);
-        petAges.put("pupper", 100);
-        petAges.put("doge", 3);
-        petAges.put("pepe", 83);
-
-        try (Close out = outExpect("petAges[pupper]=100", EOL,
-                "petAges[doge]=3", EOL,
-                "petAges[pookie]=2", EOL,
-                "petAges[fluffy]=7", EOL,
-                "petAges[pepe]=83", EOL)) {
-
-            for (String key : petAges.keySet()) {
-                println("petAges[" + key + "]=" + petAges.get(key));
-            }
-        }
-
-        petAges.keySet().stream().forEach((key) -> {
-            petAges.put(key, petAges.get(key) + 1);
-        });
-
-        try (Close out = outExpect("petAges[pupper]=101", EOL,
-                "petAges[doge]=4", EOL,
-                "petAges[pookie]=3", EOL,
-                "petAges[fluffy]=8", EOL,
-                "petAges[pepe]=84", EOL)) {
-
-            for (String key : petAges.keySet()) {
-                println("petAges[" + key + "]=" + petAges.get(key));
-            }
-        }
-    }
-
-    void testTreeMap() {
-        Map<String, Integer> petAges = new TreeMap<String, Integer>();
-
-        petAges.put("fluffy", 7);
-        petAges.put("pookie", 2);
-        petAges.put("pupper", 100);
-        petAges.put("doge", 3);
-        petAges.put("pepe", 83);
-
-        try (Close out = outExpect(
-                "petAges[doge]=3", EOL,
-                "petAges[fluffy]=7", EOL,
-                "petAges[pepe]=83", EOL,
-                "petAges[pookie]=2", EOL,
-                "petAges[pupper]=100", EOL
-        )) {
-
-            for (String key : petAges.keySet()) {
-                println("petAges[" + key + "]=" + petAges.get(key));
-            }
-        }
-
-        petAges.keySet().stream().forEach((key) -> {
-            petAges.put(key, petAges.get(key) + 1);
-        });
-
-        try (Close out = outExpect(
-                "petAges[doge]=4", EOL,
-                "petAges[fluffy]=8", EOL,
-                "petAges[pepe]=84", EOL,
-                "petAges[pookie]=3", EOL,
-                "petAges[pupper]=101", EOL
-        )) {
-            for (String key : petAges.keySet()) {
-                println("petAges[" + key + "]=" + petAges.get(key));
+        try (Close out = outExpect("1", EOL, "2", EOL, "3", EOL, "4", EOL, "5", EOL)) {
+            for (String num : nums) {
+                println(num);
             }
         }
     }
     
-    void doStuff() throws IOException { 
-        throw new IOException("bad stuff happened");
-    };
-    void doOtherStuff() {};
-    
-    void testException() {
-        try {
-            doStuff();
-        } catch (IOException ex) {
-            doOtherStuff(); 
-        }
-    }
-    
-    void testStuffMustThrowException() {
-        boolean pass = false;
-        try {
-            doStuff();
-        } catch (IOException ex) {
-            pass =true;
-        }
-        assert pass == true;
-    }
     void testLinkedList() {
-        List<String> names = new LinkedList<String>();
+        List<Integer> numbers = new LinkedList<Integer>();
         
         boolean pass = false;
         try {
-            println(names.get(0));
+            println(numbers.get(0));
         } catch (IndexOutOfBoundsException ex) {
             pass = true;
         }
         assert pass == true;
         
-        names.add("doge");
-        names.add("fluffy");
-        names.add("pepe");
-        assert names.get(names.size()-1).equals("pepe");
+        numbers.add(9);
+        numbers.add(13);
+        numbers.add(16);
+        numbers.add(18);
+
+        assert numbers.get(numbers.size()-1).equals(18);
         
-        String[] a = new String[3];
-        a[0] = "doge";
-        assert (a[0].equals("doge"));
-        assert (a[1] == null);
-        assert (a[2] == null);
+        int[] a = new int[4];
+        a[0] = 9;
+        a[1] = 10;
+        a[2] = 11;
+        assert (a[0] == 9);
+        assert (a[1] == 10);
+        assert (a[2] == 11);
     }
 
     void testCollection() {
-        Collection<Integer> c = new LinkedList<Integer>();
-        c.add(3);
-        c.add(1);
-        c.add(7);
-        c.add(2);
+        Collection<Integer> nums = new LinkedList<Integer>();
+        nums.add(1);
+        nums.add(3);
+        nums.add(5);
+        nums.add(7);
 
-        assert c.contains(3) == true;
+        assert nums.contains(3) == true;
 
-        c.remove(3);
+        nums.remove(3);
 
-        assert c.contains(3) == false;
+        assert nums.contains(3) == false;
 
-        try (Close out = outExpect(1, EOL, 7, EOL, 2, EOL)) {
-            Iterator<Integer> i = c.iterator();
+        try (Close out = outExpect(1, EOL, 5, EOL, 7, EOL)) {
+            Iterator<Integer> i = nums.iterator();
             while (i.hasNext()) {
                 Integer value = i.next();
                 println(value);
             }
         }
 
-        try (Close out = outExpect(1, EOL, 7, EOL, 2, EOL)) {
-            for (Integer value : c) {
+        try (Close out = outExpect(1, EOL, 5, EOL, 7, EOL)) {
+            for (Integer value : nums) {
                 println(value);
             }
         }
     }
+    
 }
