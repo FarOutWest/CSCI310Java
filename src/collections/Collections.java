@@ -133,8 +133,10 @@ public class Collections {
             name = _name;
         }
 
-        Collection<Integer> getids(Collection<Integer> ids) {
-            return ids;
+        void getids(Collection<Integer> ids) {
+            for (Integer value: ids) {
+                println(value);
+            }
         }
         
         int getid() {
