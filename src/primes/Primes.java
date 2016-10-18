@@ -2,30 +2,25 @@
  *
  * @author West
  */
+
 package primes;
 
 import static kiss.API.*;
 
 public class Primes {
-    void testSmallPrimes() {
-        Primes primes = new Primes();
-        assert primes.isPrime(2) == true;
-        assert primes.isPrime(3) == true;
-        assert primes.isPrime(5) == true;
+    void printSum() {
+        int x = readInteger();
+        int y = readInteger();
+        println("x+y=" + (x+y));
     }
     
-    void testSmallComposites() {
-        Primes primes = new Primes();
-        assert primes.isPrime(4) == false;
-        assert primes.isPrime(6) == false;
-        assert primes.isPrime(8) == false;
-    }
+    int sum(int x, int y) { return x+y; }
     
     boolean isPrime(int n) {
+        int y = (int)(sqrt(n)+1.0);
+        for (int factor = 2; factor <= y; ++factor) {
+            if (n % factor == 0) return false;
+        }
         return true;
-    }
-    
-    void testHi() {
-        println("Hi");
     }
 }
