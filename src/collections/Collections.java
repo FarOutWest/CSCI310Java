@@ -158,7 +158,6 @@ public class Collections {
     
     void testgetids(Collection<Integer> ids) {
         try (Close out = outExpect(1001, EOL, 2002, EOL, 3003, EOL, 4004, EOL)) {
-            //ids.getids(ids);
             for (Integer value: ids) {
                 println(value);
             }
