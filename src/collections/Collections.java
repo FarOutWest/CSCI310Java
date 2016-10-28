@@ -5,22 +5,7 @@
  */
 package collections;
 
-import static kiss.API.outClose;
-import static kiss.API.outExpect;
-import static kiss.API.println;
 
-/**
- *
- * @author West
- */
 public class Collections {
-    void testrun() {
-        outExpect("Hello World!");
-        run();
-        outClose();
-    }
-
-    void run() {
-        println("Hello World!");
-    }
+    
 }
