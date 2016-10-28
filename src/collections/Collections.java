@@ -5,7 +5,12 @@
  */
 package collections;
 
+import java.util.*;
 
 public class Collections {
+    void run() {
+        System.out.println("Hello World");
+    }
+    
     
 }
