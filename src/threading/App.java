@@ -10,9 +10,9 @@ public class App {
     void run() {
         ConsoleClock clock = new ConsoleClock();
         clock.start();
-        pause(10.0);
+        //clock.run(); would casue the thread to never exit on ConsoleClock thus printing the same thing forever
+        pause(4.0);
+        clock.stopclock();
         println("Done.");
     }
-    
-    
 }
