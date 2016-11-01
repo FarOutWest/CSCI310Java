@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 import static kiss.API.*;
 
 public class ConsoleClock extends Thread {
-    boolean running = false;
+    volatile boolean running = false;
     double startTime;
     
     public void start() {
@@ -28,11 +28,9 @@ public class ConsoleClock extends Thread {
             pause(1.0);
             println("t = " + (time() - startTime));
         }
-        /*
-        for (;;) {
+        /* for (;;) {
             println("t = " + (time() - startTime));
             pause(0.5);
-        }
-        */
+        } */
     }
 }
