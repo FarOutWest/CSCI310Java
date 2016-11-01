@@ -8,6 +8,7 @@ import static kiss.API.*;
  */
 public class App {
     void run() {
+        new Thread(()->{ pause(2); println("hi!"); }).start();
         ConsoleClock clock = new ConsoleClock();
         clock.start();
         //clock.run(); would casue the thread to never exit on ConsoleClock thus printing the same thing forever
