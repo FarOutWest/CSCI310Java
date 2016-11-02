@@ -32,4 +32,8 @@ public class CollectionsTest {
     public void tearDown() {
     }
     
+    public void testsomething() {
+        
+    }
+    
 }
