@@ -10,9 +10,7 @@ public class Collections {
         names.add("Han");
         names.add("Chewie");
         names.add("R2-D2");
-
-        System.out.println("Linked List Content: " + names);
-
+        
         names.addFirst("Vader");
         names.addLast("Boba Fett");
         System.out.println("LinkedList Content after addition: " + names);
