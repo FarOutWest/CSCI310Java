@@ -7,7 +7,32 @@ import static kiss.API.*;
  */
 public class App {
 
+    void testCourses() {
+        Courses courses = new Courses();
+        courses.addCourse("Web 1");
+        courses.addCourse("Java");
+        courses.addCourse("Fitness Walking");
+        courses.addCourse("Star Wars Appreciation");
+        courses.addCourse("Software Engineering");
+
+        Student Alice = new Student("Alice", courses);
+        Student Bob = new Student("Bob", courses);
+        Student Charlie = new Student("Charlie", courses);
+        
+        Chair Morgan = new Chair("Morgan", courses);
+        Chair Payne = new Chair("Payne", courses);
+        
+        pause(10);
+        
+        Alice.graduate();
+        Bob.graduate();
+        Charlie.graduate();
+        Morgan.retire();
+        Payne.retire();
+    }
+
     class Worker implements Runnable {
+
         @Override
         public void run() {
             println("Worker started.");
