@@ -18,7 +18,7 @@ public class Chair {
             while (!retired) {
                 pause(random(0,3000)*0.001);
                 ++count;
-                courses.addCourses(name + "'s great class # " + count);
+                courses.addCourse(name + "'s great class # " + String.valueOf(count));
             }
         }
     }

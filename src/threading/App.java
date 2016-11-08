@@ -6,7 +6,7 @@ import static kiss.API.*;
  * @author West
  */
 public class App {
-
+    
     void testCourses() {
         Courses courses = new Courses();
         courses.addCourse("Web 1");
@@ -19,16 +19,16 @@ public class App {
         Student Bob = new Student("Bob", courses);
         Student Charlie = new Student("Charlie", courses);
         
-        Chair Morgan = new Chair("Morgan", courses);
-        Chair Payne = new Chair("Payne", courses);
+        Chair Morgan = new Chair();
+        Chair Payne = new Chair();
         
-        pause(10);
+        pause(3);
         
         Alice.graduate();
         Bob.graduate();
         Charlie.graduate();
-        Morgan.retire();
-        Payne.retire();
+        //Morgan.retire(); these are mad broken 
+        //Payne.retire();
     }
 
     class Worker implements Runnable {
