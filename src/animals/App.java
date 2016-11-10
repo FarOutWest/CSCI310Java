@@ -15,5 +15,8 @@ public class App {
         animals.add(new Raven("poe"));
         animals.add(new Bird("dee"));
         
+        for (Animal animal : animals) {
+            println("name: " + animal.name);
+        }
     }
 }
