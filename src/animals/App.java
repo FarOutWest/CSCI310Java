@@ -4,7 +4,6 @@ import static kiss.API.*;
 import java.util.*;
 
 /**
- *
  * @author West
  */
 public class App {
@@ -13,18 +12,27 @@ public class App {
         animals.add(new Ferret("slim"));
         animals.add(new Ferret("tim"));
         animals.add(new Raven("poe"));
-        animals.add(new Bird("dee"));
+        animals.add(new DefaultBird("dee"));
+        
         
         for (Animal animal : animals) {
-            println("name: " + animal.name);
+            println("name: " + animal.getName());
         }
         
         for (Animal animal : animals) {
-            if (animal instanceof Bird) {
-                Bird bird = (Bird) animal; //same casting notion as C/C++
+            if (animal instanceof DefaultBird) {
+                DefaultBird bird = (DefaultBird) animal; //same casting notion as C/C++
                 bird.fly();
+                bird.layEgg();
             }
         }
+    }
+    
+    void testPlatypus() {
+        Platypus pete = new Platypus("pete");
+        assert pete.isFurry() == true;
+        pete.layEgg();
+        println("and so does pete");
     }
     
     void testCollectionOfAnimals() {
@@ -32,7 +40,7 @@ public class App {
         animals.add(new Ferret("slim"));
         animals.add(new Ferret("tim"));
         animals.add(new Raven("poe"));
-        animals.add(new Bird("dee"));
+        animals.add(new DefaultBird("dee"));
         
         try (Close out = outExpect(
                 "name: slim", EOL, 
@@ -40,7 +48,7 @@ public class App {
                 "name: poe", EOL,
                 "name: dee", EOL)) {
             for (Animal animal : animals) {
-                println("name: " + animal.name);
+                println("name: " + animal.getName());
             }
         }
     }
@@ -50,15 +58,15 @@ public class App {
         animals.add(new Ferret("slim"));
         animals.add(new Ferret("tim"));
         animals.add(new Raven("poe"));
-        animals.add(new Bird("dee"));
+        animals.add(new DefaultBird("dee"));
         
         try (Close out = outExpect( 
                 "flying...", EOL, 
                 "(quietly)", EOL, 
                 "flying...", EOL)) {
             for (Animal animal : animals) {
-                if (animal instanceof Bird) {
-                    Bird bird = (Bird) animal; //same casting notion as C/C++
+                if (animal instanceof DefaultBird) {
+                    DefaultBird bird = (DefaultBird) animal; //same casting notion as C/C++
                     bird.fly();
                 }
             }   
@@ -71,7 +79,7 @@ public class App {
         
         boolean passed = false;
         try {
-            Bird bird = (Bird) animals.getFirst();
+            DefaultBird bird = (DefaultBird) animals.getFirst();
         } catch (ClassCastException ex) {
             passed = true;
         }

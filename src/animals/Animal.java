@@ -4,10 +4,9 @@ package animals;
  *
  * @author West
  */
-public class Animal {
-    String name;
-    
-    Animal(String _name) {
-        name = _name;
-    }
+//an interface is only supposed to be features 
+
+public interface Animal {
+    String getName();
+    void setName(String name);
 }

@@ -5,7 +5,7 @@ package animals;
  * @author West
  */
 public class DefaultAnimal implements Animal {
-    String name;
+    private String name;
     
     DefaultAnimal(String _name) {
         name = _name;

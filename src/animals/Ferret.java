@@ -6,7 +6,7 @@ import static kiss.API.*;
  *
  * @author West
  */
-public class Ferret extends Animal {
+public class Ferret extends DefaultAnimal {
     Ferret (String _name) {
         super(_name);
     }

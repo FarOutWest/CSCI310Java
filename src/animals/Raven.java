@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author West
  */
-public class Raven extends Bird {
+public class Raven extends DefaultBird {
     Raven (String _name) {
         super(_name);
         // make the raven part of the bird here
@@ -18,7 +18,7 @@ public class Raven extends Bird {
     }
     
     @Override //not a requirement for redefinition but it is a good habbit
-    void fly() {
+    public void fly() {
         super.fly();
         println("(quietly)");
     }
