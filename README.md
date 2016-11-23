@@ -12,3 +12,7 @@ Collections Assignment:
 Not Using Kiss Assignment: 
   https://github.com/FarOutWest/CSCI310Java/tree/sanskiss/src
   made another basic collections class and used some basic junit testing it wasn't super interesting by any means but it was something
+  
+Concurrent Assignment: 
+  https://github.com/FarOutWest/CSCI310Java/tree/threading/src/threading
+  just updated some of the stuff we did in class to poke around with the concept of threading its pretty simple but was super helpful!
