@@ -8,25 +8,24 @@ import static kiss.API.*;
 public class App {
     
     void testCourses() {
-        Courses courses = new Courses();
-        courses.addCourse("Web 1");
-        courses.addCourse("Java");
-        courses.addCourse("Fitness Walking");
-        courses.addCourse("Star Wars Appreciation");
-        courses.addCourse("Software Engineering");
+        Foods foods = new Foods();
+        foods.addFoods("Hay");
+        foods.addFoods("Steak");
+        foods.addFoods("Worms");
+        foods.addFoods("Burgers");
 
-        Student Alice = new Student("Alice", courses);
-        Student Bob = new Student("Bob", courses);
-        Student Charlie = new Student("Charlie", courses);
+        Animals tiger = new Animals("Tiger", foods);
+        Animals giraffe = new Animals("Giraffe", foods);
+        Animals dog = new Animals("Doggo", foods);
         
-        Chair Morgan = new Chair();
-        Chair Payne = new Chair();
+        Keeper Joe = new Keeper();
+        Keeper Billy = new Keeper();
         
         pause(3);
         
-        Alice.graduate();
-        Bob.graduate();
-        Charlie.graduate();
+        tiger.finishedeating();
+        giraffe.finishedeating();
+        dog.finishedeating();
         //Morgan.retire(); these are mad broken 
         //Payne.retire();
     }
