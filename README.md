@@ -16,3 +16,7 @@ Not Using Kiss Assignment:
 Concurrent Assignment: 
   https://github.com/FarOutWest/CSCI310Java/tree/threading/src/threading
   just updated some of the stuff we did in class to poke around with the concept of threading its pretty simple but was super helpful!
+  
+Final Assignment:
+  https://github.com/FarOutWest/CSCI310JavaFinal/tree/master/src/csci310javafinal
+  This is a tetris clone that I built using Java and JFrame 
